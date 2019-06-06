@@ -213,6 +213,10 @@ class DiceRoller {
   }
 
   public static _rollDie(dieType: number) {
+    if (dieType <= 0) {
+      return 0;
+    }
+
     return Math.floor(Math.random() * Math.floor(dieType)) + 1;
   }
 }
