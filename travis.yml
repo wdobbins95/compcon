@@ -1,5 +1,5 @@
 language: node_js
-node_js: "10"
+node_js: '10'
 cache: yarn
 install:
   - yarn
@@ -14,18 +14,18 @@ sudo: false
 # That said, I'm sure a refactor could improve all this.
 matrix:
   include:
-  - name: osx_build
-    os: osx
-    osx_image: xcode10.2
-    script: BUILD_OS=osx ./build_scripts/build.sh
-  - name: linux_build
-    os: linux
-    dist: xenial
-    script: BUILD_OS=linux ./build_scripts/build.sh
-  - name: win_build
-    os: osx
-    osx_image: xcode10.2
-    script: BUILD_OS=win ./build_scripts/build.sh
+    - name: osx_build
+      os: osx
+      osx_image: xcode10.2
+      script: BUILD_OS=osx ./build_scripts/build.sh
+    - name: linux_build
+      os: linux
+      dist: xenial
+      script: BUILD_OS=linux ./build_scripts/build.sh
+    - name: win_build
+      os: osx
+      osx_image: xcode10.2
+      script: BUILD_OS=win ./build_scripts/build.sh
 
 env:
   global:
@@ -40,3 +40,4 @@ branches:
     - stable
     - beta
     - tso_ci_pipeline
+    - pr_build

@@ -54,9 +54,9 @@ then
   # GNU unzip tends to not set the executable bit even though it's set in the .zip
   chmod +x butler
   ./butler -V
-  echo "---Pushing ${BUILD_OS} build for branch ${TRAVIS_BRANCH} to Itch.io---"
-  echo "./butler push build/${BUILD_OS}-${TRAVIS_BRANCH} massif-press/compcon:${BUILD_OS}-${TRAVIS_BRANCH}  --userversion ${BUILD_VER}"
-  ./butler push build/${BUILD_OS}-${TRAVIS_BRANCH} massif-press/compcon:${BUILD_OS}-${TRAVIS_BRANCH}  --userversion ${BUILD_VER}
+  # echo "---Pushing ${BUILD_OS} build for branch ${TRAVIS_BRANCH} to Itch.io---"
+  # echo "./butler push build/${BUILD_OS}-${TRAVIS_BRANCH} massif-press/compcon:${BUILD_OS}-${TRAVIS_BRANCH}  --userversion ${BUILD_VER}"
+  # ./butler push build/${BUILD_OS}-${TRAVIS_BRANCH} massif-press/compcon:${BUILD_OS}-${TRAVIS_BRANCH}  --userversion ${BUILD_VER}
   echo "---Build and Deployment for ${BUILD_OS} platform, ${TRAVIS_BRANCH} branch complete!"
 else
   echo "---Pull Request Build for ${BUILD_OS} platform, ${TRAVIS_BRANCH} branch complete!"
