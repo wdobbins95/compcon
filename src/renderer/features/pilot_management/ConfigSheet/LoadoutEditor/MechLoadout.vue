@@ -4,7 +4,8 @@
       <v-card-text>
         <p class="text-sm-center">
           <v-btn large @click="newLoadout()" color="primary">
-            <v-icon>add</v-icon>Add New Loadout
+            <v-icon>add</v-icon>
+            Add New Loadout
           </v-btn>
         </p>
       </v-card-text>
@@ -20,9 +21,9 @@
       @change="changeTab()"
       :key="config.Loadouts.length"
     >
-      <v-tab v-for="loadout in config.Loadouts" :key="loadout.id">{{
-        loadout.name
-      }}</v-tab>
+      <v-tab v-for="loadout in config.Loadouts" :key="loadout.id">
+        {{ loadout.name }}
+      </v-tab>
       <span>
         <v-tooltip top>
           <v-btn icon slot="activator" @click="newLoadout()">
@@ -79,7 +80,8 @@
                   @cancel="renameDialog = false"
                 >
                   <v-btn slot="activator" flat @click="renameDialog = true">
-                    <v-icon small left>edit</v-icon>Rename Loadout
+                    <v-icon small left>edit</v-icon>
+                    Rename Loadout
                   </v-btn>
                   <v-card-text slot="modal-content">
                     <v-text-field
@@ -91,7 +93,8 @@
                 </lazy-dialog>
 
                 <v-btn flat @click="copyLoadout(loadout)">
-                  <v-icon small left>file_copy</v-icon>Duplicate Loadout
+                  <v-icon small left>file_copy</v-icon>
+                  Duplicate Loadout
                 </v-btn>
 
                 <v-spacer />
@@ -110,7 +113,8 @@
                     color="error"
                     @click="deleteDialog = true"
                   >
-                    <v-icon small left>edit</v-icon>Delete Loadout
+                    <v-icon small left>edit</v-icon>
+                    Delete Loadout
                   </v-btn>
                   <v-card-text slot="modal-content">
                     <p>
@@ -168,9 +172,9 @@ export default Vue.extend({
       this.tabIndex = this.config.Loadouts.length - 1
     },
     deleteLoadout(loadout: MechLoadout) {
-      this.config.RemoveLoadout(loadout)
       this.tabIndex = this.config.Loadouts.length - 1
       this.deleteDialog = false
+      this.config.RemoveLoadout(loadout)
     },
     copyLoadout(loadout: MechLoadout) {
       this.config.CloneLoadout(loadout)
@@ -209,7 +213,8 @@ export default Vue.extend({
       }
     } else if (this.config && this.config.Loadouts) {
       this.tabIndex = 0
-      this.config.ActiveLoadout = this.config.Loadouts[0]
+      if (this.config.Loadouts.length)
+        this.config.ActiveLoadout = this.config.Loadouts[0]
     }
   },
 })

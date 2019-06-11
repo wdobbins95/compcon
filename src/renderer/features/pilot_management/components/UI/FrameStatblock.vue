@@ -18,6 +18,7 @@
           <v-flex xs2>Tech Attack</v-flex>
           <v-flex xs2>Save</v-flex>
           <v-flex xs2>Speed</v-flex>
+          <v-flex xs2>SP</v-flex>
         </v-layout>
       </v-card>
       <v-layout class="text-xs-center effect-text">
@@ -31,6 +32,7 @@
         <v-flex xs2>{{ frame.TechAttack }}</v-flex>
         <v-flex xs2>{{ frame.Save }}</v-flex>
         <v-flex xs2>{{ frame.Speed }}</v-flex>
+        <v-flex xs2>{{ frame.SP }}</v-flex>
       </v-layout>
     </div>
     <v-card color="grey lighten-4">
@@ -38,37 +40,38 @@
         <v-flex xs8>
           <v-card-text>
             <v-card flat color="transparent">
-              <v-card-title class="title mt-0 pt-2 mb-0 pb-0"
-                >Mounts</v-card-title
-              >
+              <v-card-title class="title mt-0 pt-2 mb-0 pb-0">
+                Mounts
+              </v-card-title>
               <v-card-text>
                 <b
                   v-for="(t, i) in frame.mounts"
                   :key="t + i"
                   class="title font-weight-black"
-                >
+                  >
                   &emsp;{{ t }}&emsp;
                   <span
                     v-if="i < frame.mounts.length - 1"
                     class="fluff-text grey--text"
-                    >//</span
                   >
+                    //
+                  </span>
                 </b>
               </v-card-text>
             </v-card>
 
             <v-card v-if="frame.CoreSystem.Integrated" flat color="transparent">
-              <v-card-title class="title mt-0 pt-2 mb-0 pb-0"
-                >Integrated Mount</v-card-title
-              >
+              <v-card-title class="title mt-0 pt-2 mb-0 pb-0">
+                Integrated Mount
+              </v-card-title>
               <v-card-text class="ml-4">
                 <span class="subheading">
-                  <b
-                    >{{ frame.CoreSystem.Integrated.Name }} ({{
+                  <b>
+                    {{ frame.CoreSystem.Integrated.Name }} ({{
                       frame.CoreSystem.Integrated.Size
                     }}
-                    {{ frame.CoreSystem.Integrated.Type }}):</b
-                  >
+                    {{ frame.CoreSystem.Integrated.Type }}):
+                  </b>
                 </span>
                 <range-element
                   v-if="frame.CoreSystem.Integrated.Range"
@@ -94,12 +97,13 @@
             </v-card>
 
             <v-card class="m-1" flat color="transparent">
-              <v-card-title class="title mt-0 pt-2 mb-0 pb-0"
-                >Traits</v-card-title
-              >
+              <v-card-title class="title mt-0 pt-2 mb-0 pb-0">
+                Traits
+              </v-card-title>
               <v-card-text class="ml-4">
                 <span v-for="t in frame.Traits" :key="t.name">
-                  <b class="subheading font-weight-bold">{{ t.name }}:</b>&nbsp;
+                  <b class="subheading font-weight-bold">{{ t.name }}:</b>
+                  &nbsp;
                   <span class="effect-text">{{ t.description }}</span>
                   <br />
                 </span>
@@ -107,14 +111,14 @@
             </v-card>
 
             <v-card class="m-1" flat color="transparent">
-              <v-card-title class="title mt-0 pt-2 mb-0 pb-0"
-                >CORE System</v-card-title
-              >
+              <v-card-title class="title mt-0 pt-2 mb-0 pb-0">
+                CORE System
+              </v-card-title>
               <v-card-text class="ml-4">
                 <span>
-                  <b class="subheading font-weight-bold"
-                    >{{ frame.CoreSystem.Name }}:</b
-                  >
+                  <b class="subheading font-weight-bold">
+                    {{ frame.CoreSystem.Name }}:
+                  </b>
                 </span>
                 <span>
                   <br />
