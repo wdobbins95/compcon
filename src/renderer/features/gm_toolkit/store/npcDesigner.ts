@@ -1,7 +1,7 @@
-import NPC from '../logic/NPC';
-import _ from 'lodash';
+import NPC from '../logic/NPC'
+import _ from 'lodash'
 
-const storedNPCs = localStorage.getItem('npcs');
+const storedNPCs = null
 
 export default {
   namespaced: true,
@@ -10,15 +10,15 @@ export default {
   },
   mutations: {
     delete(state: any, id: string) {
-      _.remove(state.npcs, { id });
+      _.remove(state.npcs, { id })
     },
     add(state: any, npc: NPC) {
-      state.npcs.push(npc);
+      state.npcs.push(npc)
     },
     edit(state: any, newNpc: NPC) {
-      const target = state.npcs.find((npc: NPC) => npc.id === newNpc.id);
-      if (!target) throw new Error('npc does not exist');
-      else Object.assign(target, newNpc);
+      const target = state.npcs.find((npc: NPC) => npc.id === newNpc.id)
+      if (!target) throw new Error('npc does not exist')
+      else Object.assign(target, newNpc)
     },
   },
-};
+}
