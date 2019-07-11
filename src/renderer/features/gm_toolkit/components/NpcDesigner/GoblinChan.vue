@@ -24,7 +24,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import image from '../../static/goblinchan.png';
+
+const image = require('../../static/goblinchan.png');
 
 export default Vue.extend({
   name: 'goblin-chan',
